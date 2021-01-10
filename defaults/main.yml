@@ -1,0 +1,18 @@
+---
+mongodb_exporter_version: 0.20.1
+mongodb_exporter_binary_local_dir: ""
+mongodb_exporter_web_listen_address: "0.0.0.0:9216"
+mongodb_exporter_web_telemetry_path: "/metrics"
+
+# MongoDB URI in format [mongodb://][user:pass@]host1[:port1][,host2[:port2],...][/database][?options]
+mongodb_exporter_database_uri: "mongodb://127.0.0.1:27017"
+
+mongodb_exporter_collect_database: false
+mongodb_exporter_collect_collection: false
+mongodb_exporter_collect_topmetrics: false
+mongodb_exporter_collect_indexusage: false
+
+# Internal variables.
+_mongodb_exporter_binary_install_dir: "/usr/local/bin"
+_mongodb_exporter_system_group: "mongodb-exporter"
+_mongodb_exporter_system_user: "{{ _mongodb_exporter_system_group }}"

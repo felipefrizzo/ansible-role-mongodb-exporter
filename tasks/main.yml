@@ -1,0 +1,39 @@
+---
+- import_tasks: preflight.yml
+  tags:
+    - mongodb_exporter_install
+    - mongodb_exporter_configure
+    - mongodb_exporter_run
+
+- import_tasks: install.yml
+  become: true
+  when:
+    ( not __mongodb_exporter_is_installed.stat.exists ) or
+    ( mongodb_exporter_binary_local_dir | length > 0 )
+    # For some reason the version of build are not showing
+    # ( __mongodb_exporter_current_version_output.stdout_lines[1].split(" ")[1] != mongodb_exporter_version ) or 
+  tags:
+    - mongodb_exporter_install
+
+- import_tasks: selinux.yml
+  become: true
+  when: ansible_selinux.status == "enabled"
+  tags:
+    - mongodb_exporter_configure
+
+- import_tasks: configure.yml
+  become: true
+  tags:
+    - mongodb_exporter_configure
+
+- name: Ensure MongoDB Exporter is enabled on boot
+  become: true
+  systemd:
+    daemon_reload: true
+    name: mongodb_exporter
+    enabled: true
+    state: started
+  when:
+    - not ansible_check_mode
+  tags:
+    - mongodb_exporter_run

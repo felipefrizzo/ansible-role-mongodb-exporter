@@ -1,0 +1,37 @@
+{{ ansible_managed | comment }}
+
+[Unit]
+Description=Prometheus MongoDB Exporter by Percona
+After=network-online.target
+
+[Service]
+Type=simple
+Restart=always
+
+User={{ _mongodb_exporter_system_user }}
+Group={{ _mongodb_exporter_system_group }}
+
+ExecStart={{ _mongodb_exporter_binary_install_dir }}/mongodb_exporter \
+  --mongodb.uri={{ mongodb_exporter_database_uri }} \
+  {% if mongodb_exporter_collect_database -%}
+      --collect.database \
+  {% endif -%}
+  {% if mongodb_exporter_collect_collection -%}
+      --collect.collection \
+  {% endif -%}
+  {% if mongodb_exporter_collect_topmetrics -%}
+      --collect.topmetrics \
+  {% endif -%}
+  {% if mongodb_exporter_collect_indexusage -%}
+      --collect.indexusage \
+  {% endif -%}
+  --web.listen-address={{ mongodb_exporter_web_listen_address }} \
+  --web.telemetry-path={{ mongodb_exporter_web_telemetry_path }}
+
+SyslogIdentifier=mongodb_exporter
+Restart=always
+RestartSec=1
+StartLimitInterval=0
+
+[Install]
+WantedBy=multi-user.target

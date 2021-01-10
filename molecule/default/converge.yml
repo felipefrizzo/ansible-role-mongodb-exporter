@@ -1,0 +1,7 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: "Include mongodb-exporter"
+      include_role:
+        name: "mongodb-exporter"

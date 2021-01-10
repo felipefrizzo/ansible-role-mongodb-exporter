@@ -1,0 +1,9 @@
+---
+- name: restart mongodb_exporter
+  become: yes
+  systemd:
+    daemon_reload: true
+    name: mongodb_exporter
+    state: restarted
+  when:
+    - not ansible_check_mode
