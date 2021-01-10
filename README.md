@@ -2,7 +2,8 @@
 
 ## Description
 
-Deploy prometheus [mongodb exporter](https://github.com/percona/mongodb_exporter) by Percona using ansible .
+Deploy prometheus [mongodb exporter](https://github.com/percona/mongodb_exporter) by Percona using ansible.  
+This ansible role are based on [mongodb-exporter](https://github.com/kostiantyn-nemchenko/ansible-role-mongodb-exporter) and [node-exporter](https://github.com/cloudalchemy/ansible-node-exporter)
 
 ## Requirements
 
@@ -22,7 +23,7 @@ Use it in a playbook as follows:
 ```yml
 - hosts: all
   roles:
-      - felipefrizzo.mongodb-exporter
+      - felipefrizzo.mongodb_exporter
 ```
 
 ## License
