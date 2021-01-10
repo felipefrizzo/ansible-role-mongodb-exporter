@@ -25,7 +25,7 @@ galaxy_info:
         - 30
         - 31
 
-  galaxy_tags: 
+  galaxy_tags:
     - monitoring
     - prometheus
     - exporter
