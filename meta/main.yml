@@ -1,6 +1,6 @@
 galaxy_info:
   role_name: mongodb_exporter
-  author: Felipe Frizzo
+  author: felipefrizzo
   description: An ansible role to install prometheus mongodb exporter
 
   license: MIT

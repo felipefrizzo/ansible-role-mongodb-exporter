@@ -2,7 +2,7 @@
 name: Linter
 on: [push, pull_request]
 jobs:
-  build:
+  linter:
     runs-on: ubuntu-latest
     strategy:
       matrix:

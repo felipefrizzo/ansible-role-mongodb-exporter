@@ -5,13 +5,19 @@ driver:
   name: docker
 platforms:
   - name: centos8
-    image: geerlingguy/docker-centos8-ansible:latest
+    image: paulfantom/centos-molecule:8
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     pre_build_image: true
     privileged: true
   - name: bionic
-    image: geerlingguy/docker-ubuntu1804-ansible:latest
+    image: paulfantom/ubuntu-molecule:18.04
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    pre_build_image: true
+    privileged: true
+  - name: fedora
+    image: paulfantom/fedora-molecule:30
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     pre_build_image: true
@@ -20,5 +26,3 @@ provisioner:
   name: ansible
   playbooks:
     converge: converge.yml
-verifier:
-  name: ansible
