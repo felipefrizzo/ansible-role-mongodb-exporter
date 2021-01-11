@@ -1,5 +1,6 @@
 # Ansible MongoDB Exporter
 
+[![Molecule](https://github.com/felipefrizzo/ansible-role-mongodb-exporter/workflows/Molecule/badge.svg?event=push)](https://github.com/felipefrizzo/ansible-role-mongodb-exporter/actions?query=workflow%3AMolecule)
 [![License](https://img.shields.io/badge/license-MIT%20License-brightgreen.svg)](https://opensource.org/licenses/MIT)
 
 ## Description
