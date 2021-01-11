@@ -4,4 +4,4 @@
   tasks:
     - name: "Include mongodb-exporter"
       include_role:
-        name: "mongodb-exporter"
+        name: "ansible-role-mongodb-exporter"

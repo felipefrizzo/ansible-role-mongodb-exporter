@@ -1,5 +1,5 @@
 galaxy_info:
-  role_name: mongodb-exporter
+  role_name: mongodb_exporter
   author: Felipe Frizzo
   description: An ansible role to install prometheus mongodb exporter
 

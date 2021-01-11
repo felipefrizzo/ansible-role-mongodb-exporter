@@ -4,10 +4,21 @@ dependency:
 driver:
   name: docker
 platforms:
-  - name: instance
-    image: docker.io/pycontribs/centos:8
+  - name: centos8
+    image: geerlingguy/docker-centos8-ansible:latest
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
     pre_build_image: true
+    privileged: true
+  - name: bionic
+    image: geerlingguy/docker-ubuntu1804-ansible:latest
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    pre_build_image: true
+    privileged: true
 provisioner:
   name: ansible
+  playbooks:
+    converge: converge.yml
 verifier:
   name: ansible
