@@ -1,8 +1,11 @@
+---
 parseable: true
 quiet: true
 skip_list:
   - '106'
   - '204'
   - '301'
+warn_list:
+  - 'internal-error'
 use_default_rules: true
 verbosity: 1
