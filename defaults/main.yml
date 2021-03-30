@@ -11,6 +11,7 @@ mongodb_exporter_collect_database: false
 mongodb_exporter_collect_collection: false
 mongodb_exporter_collect_topmetrics: false
 mongodb_exporter_collect_indexusage: false
+mongodb_exporter_compatible_mode: false
 
 # Internal variables.
 _mongodb_exporter_binary_install_dir: "/usr/local/bin"
