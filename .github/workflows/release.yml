@@ -4,9 +4,15 @@ on:
   push:
     tags:
       - '*'
+  workflow_run:
+    workflows:
+      - "Linter"
+      - "Molecule"
+    types:
+      - completed
 
 jobs:
-  release:
+  on-success:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
