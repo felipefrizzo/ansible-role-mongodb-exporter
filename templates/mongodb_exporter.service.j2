@@ -25,9 +25,9 @@ ExecStart={{ _mongodb_exporter_binary_install_dir }}/mongodb_exporter \
   {% if mongodb_exporter_collect_indexusage -%}
       --collect.indexusage \
   {% endif -%}
-  {% if mongodb_exporter_compatible_mode %}
+  {% if mongodb_exporter_compatible_mode -%}
         --compatible-mode \
-  {% endif - %}
+  {% endif -%}
   --web.listen-address={{ mongodb_exporter_web_listen_address }} \
   --web.telemetry-path={{ mongodb_exporter_web_telemetry_path }}
 
